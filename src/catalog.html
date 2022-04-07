@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Catalog</title>
+      <link rel="stylesheet" href="tailwind.css" />
+   </head>
+   <body class="h-full">
+      <div class="h-full flex flex-col">
+         <!-- Header -->
+         <include src="src/components/header.html"></include>
+         <main class="container mx-auto py-8">
+            <div class="flex gap-8">
+               <div class="flex-1">
+                  <div class="flex items-center">
+                     <!-- Bread crumbs -->
+                     <div>
+                        <a class="text-sm font-medium hover:underline" href="catalog.html"
+                           >Goods</a
+                        >
+                        <span>/</span>
+                        <a class="text-sm font-medium hover:underline" href="catalog.html"
+                           >Clothes</a
+                        >
+                        <span>/</span>
+                        <a class="text-sm font-medium hover:underline" href="catalog.html"
+                           >Woman</a
+                        >
+                        <span>/</span>
+                        <a class="text-sm font-medium hover:underline" href="catalog.html"
+                           >T-Shirts</a
+                        >
+                     </div>
+                     <!-- Sort -->
+                     <div class="ml-auto flex items-center">
+                        <span class="text-sm">сортувати за:</span>
+                        <div class="border shadow-inner rounded px-1 ml-2">
+                           <select class="outline-none h-8 border-none app bg-transparent">
+                              <option>Популярністю</option>
+                              <option>Відгуками</option>
+                              <option>Спочатку дорогі</option>
+                              <option>Спочатку дешеві</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Product list -->
+                  <div class="grid grid-cols-4 gap-2 mt-4">
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                     <include src="src/components/product-item.html"></include>
+                  </div>
+                  <!-- Pagination -->
+                  <div class="flex justify-center gap-x-2 mt-8 text-lg items-center">
+                     <a class="border py-1 w-20 text-center rounded" href="#">Назад</a>
+                     <a class="border py-1 px-3.5 rounded" href="#">1</a>
+                     <a class="border py-1 px-3.5 rounded" href="#">13</a>
+                     <a class="border shadow-inner py-2 px-5 rounded" href="#">14</a>
+                     <a class="border py-1 px-3.5 rounded" href="#">15</a>
+                     <a class="border py-1 px-3.5 rounded" href="#">33</a>
+                     <a class="border py-1 w-20 text-center rounded" href="#">Далі</a>
+                  </div>
+               </div>
+               <div class="w-72">
+                  <!-- Filters -->
+                  <div class="border shadow-inner p-4 space-y-4">
+                     <div>
+                        <span class="text-sm font-medium">Brand</span>
+                        <ul>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Nike</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Zara</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">H & M</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Converse</span>
+                              </label>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <span class="text-sm font-medium">Color</span>
+                        <ul>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">White</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Black</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Nany</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Pink</span>
+                              </label>
+                           </li>
+                        </ul>
+                     </div>
+                     <div>
+                        <span class="text-sm font-medium">Material</span>
+                        <ul>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Cotton</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Chiffon</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Fiber</span>
+                              </label>
+                           </li>
+                           <li class="mt-2">
+                              <label class="flex items-center">
+                                 <input class="w-4 h-4" type="checkbox" />
+                                 <span class="ml-2">Textile</span>
+                              </label>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+      </div>
+   </body>
+</html>
