@@ -1,3 +1,79 @@
 <extends src="src/_layout.html" locals='{"title": "Home"}'>
-   <block name="content">Home</block>
+   <block name="content">
+      <div class="flex gap-4">
+         <div class="flex-1">
+            <img class="object-cover" src="https://i.ytimg.com/vi/l_56hZVOGnI/maxresdefault.jpg">
+            <div class="flex justify-between items-center mt-1">
+               <span class="font-medium text-2xl">Samsung UHD TV</span>
+               <span class="text-2xl">$1230</span>
+            </div>
+         </div>
+         <div class="w-2/5 grid grid-cols-2">
+            
+            <div class="flex flex-col">
+               <img class="w-full h-48 object-cover"
+                  src="https://www.amosale.com/wp-content/uploads/2022/02/61IJBsHm97L._SL1500_-2.jpg">
+               <span class="text-center font-medium text-lg mt-2">iPhones</span>
+            </div>
+            <div class="flex flex-col row-span-2">
+               <img class="w-full h-[420px] object-cover"
+                  src="./assets/product-preview.jpeg">
+               <span class="font-medium text-lg text-center mt-4">New collection</span>
+            </div>
+            <div class="flex flex-col">
+               <img class="w-full h-48 object-cover"
+                  src="https://media.istockphoto.com/photos/red-headphones-isolated-picture-id835148968?k=20&m=835148968&s=170667a&w=0&h=daLHpdrq22SuLaxOsAYlExZ_ER2E3ccSGKvKml7SUGU=">
+               <span class="text-center font-medium text-lg mt-2">Headphones</span>
+            </div>
+         </div>
+      </div>
+
+      <h2 class="mt-10 text-2xl font-medium text-gray-700">Єлектроніка</h2>
+      <div class="grid grid-cols-5 mt-4 gap-4">
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor.",
+            "pic": "https://images.samsung.com/is/image/samsung/p6pim/pl/lf27t350fhrxen/gallery/pl-t35f-363583-lf27t350fhrxen-403431628?$720_576_PNG$"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor.",
+            "pic": "https://images.prismic.io/frameworkmarketplace/cca31de3-3b75-4932-af96-7646b7eba6c7__DSC3630-Edit-cropped.jpg?auto=compress,format"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor sit.",
+            "pic": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6402/6402202ld.jpg"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem.",
+            "pic": "https://www.marshallheadphones.com/on/demandware.static/-/Sites-zs-master-catalog/default/dw91dd943d/images/marshall/headphones/major-iv/high-res/pos-marshall-major-iv-black-01.png"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Logitech Craft Keyboard",
+            "pic": "https://img.pccomponentes.com/articles/18/188501/a7.jpg"
+         }</include>
+      </div>
+
+      <h2 class="mt-8 text-2xl font-medium text-gray-700">Сад та город</h2>
+      <div class="grid grid-cols-5 mt-4 gap-4">
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor.",
+            "pic": "https://shishkaproject.com/image/cache/data/odb-price-ua-xlsx/odb-konus-10-1-800x800.jpg"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor.",
+            "pic": "https://aquabud.com.ua/wp-content/uploads/2020/02/800px_88.006.jpg"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor sit.",
+            "pic": "https://pomidorka.com.ua/8286-tm_thickbox_default/vazon-gloriya-s-podstavkoj-14514-sm.jpg"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem.",
+            "pic": "https://vazon.ru/upload/iblock/5da/5dae5f134cc4f0ac00c546989364d2d3.jpg"
+         }</include>
+         <include src="src/components/suggest-item.html">{ 
+            "name": "Lorem, ipsum dolor.",
+            "pic": "https://his.ua/img/products/cU-m_MtRBX_500_500.jpg"
+         }</include>
+      </div>
+   </block>
 </extends>
