@@ -1,167 +1,155 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Product</title>
-      <link rel="stylesheet" href="tailwind.css" />
-   </head>
-   <body>
-      <!-- Header -->
-      <include src="src/components/header.html"></include>
-      <main class="default-container py-8">
-         <div class="flex gap-x-8">
-            <div class="w-3/5">
-               <!-- Pictures -->
-               <div class="grid grid-cols-[65%_35%] shadow">
-                  <div class="mr-1">
+<extends src="src/_layout.html" locals='{"title": "Product"}'>
+   <block name="content">
+      <div class="flex gap-x-8">
+         <div class="w-3/5">
+            <!-- Pictures -->
+            <div class="grid grid-cols-[65%_35%] shadow">
+               <div class="mr-1">
+                  <img
+                     class="w-full h-[360px] object-cover"
+                     src="./assets/product-wide-preview.webp"
+                  />
+                  <div class="grid grid-cols-2 mt-1 gap-x-1">
                      <img
                         class="w-full h-[360px] object-cover"
-                        src="./assets/product-wide-preview.webp"
+                        src="./assets/product-front-preview.jfif"
                      />
-                     <div class="grid grid-cols-2 mt-1 gap-x-1">
-                        <img
-                           class="w-full h-[360px] object-cover"
-                           src="./assets/product-front-preview.jfif"
-                        />
-                        <img
-                           class="w-full h-[360px] object-cover"
-                           src="./assets/product-back-preview.jfif"
-                        />
-                     </div>
+                     <img
+                        class="w-full h-[360px] object-cover"
+                        src="./assets/product-back-preview.jfif"
+                     />
                   </div>
-                  <img
-                     class="w-full h-[724px] object-cover"
-                     src="./assets/product-preview.jpeg"
-                  />
                </div>
-            </div>
-            <div class="flex-1">
-               <!-- Details -->
-               <div>
-                  <h1 class="text-3xl font-medium mt-6">Basic white t-shirt</h1>
-                  <p class="mt-8">
-                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum
-                     repellendus dicta quidem, magni in fugit?
-                  </p>
-                  <ul class="mt-8 space-y-6">
-                     <li class="flex justify-between items-center">
-                        <span class="text-gray-600">Brand:</span>
-                        <span class="font-medium">Zara</span>
-                     </li>
-                     <li class="flex justify-between items-center">
-                        <span class="text-gray-600">Color:</span>
-                        <div class="flex gap-x-4">
-                           <div
-                              class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
-                           >
-                              <div class="w-2 h-2 border border-black/30 rounded-full"></div>
-                              <span class="text-sm">white</span>
-                           </div>
-                           <div
-                              class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50 ring ring-gray-100"
-                           >
-                              <div class="w-2 h-2 bg-black rounded-full"></div>
-                              <span class="text-sm">black</span>
-                           </div>
-                           <div
-                              class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
-                           >
-                              <div class="w-2 h-2 bg-[navy] rounded-full"></div>
-                              <span class="text-sm">navy</span>
-                           </div>
-                           <div
-                              class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
-                           >
-                              <div class="w-2 h-2 bg-[pink] rounded-full"></div>
-                              <span class="text-sm">pink</span>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="flex justify-between items-center">
-                        <span class="text-gray-600">Material:</span>
-                        <span class="font-medium">Chiffon</span>
-                     </li>
-                     <li class="flex justify-between items-center">
-                        <span class="text-gray-600">Size:</span>
-                        <div class="flex gap-x-4">
-                           <div class="border rounded-md cursor-pointer hover:bg-gray-50">
-                              <span class="text-sm px-2 py-0.5">S</span>
-                           </div>
-                           <div class="border rounded-md cursor-pointer hover:bg-gray-50">
-                              <span class="text-sm px-2 py-0.5">M</span>
-                           </div>
-                           <div class="border rounded-md cursor-pointer hover:bg-gray-50">
-                              <span class="text-sm px-2 py-0.5">L</span>
-                           </div>
-                           <div
-                              class="border rounded-md cursor-pointer hover:bg-gray-50 ring ring-gray-100"
-                           >
-                              <span class="text-sm px-2 py-0.5">XL</span>
-                           </div>
-                           <div class="border rounded-md cursor-pointer hover:bg-gray-50">
-                              <span class="text-sm px-2 py-0.5">XXL</span>
-                           </div>
-                           <div class="border rounded-md cursor-pointer hover:bg-gray-50">
-                              <span class="text-sm px-2 py-0.5">XXXL</span>
-                           </div>
-                        </div>
-                     </li>
-                     <li class="flex justify-between items-center">
-                        <span class="text-lg">Quantity:</span>
-                        <div class="flex">
-                           <div
-                              class="rounded-l leading-8 px-3 border border-r-0 hover:bg-gray-50 cursor-pointer"
-                           >
-                              -
-                           </div>
-                           <input
-                              class="text-center rounedd outline-none border w-12 leading-8 px-2"
-                              value="999"
-                              maxlength="3"
-                              type="text"
-                           />
-                           <div
-                              class="rounded-r leading-8 px-3 border border-l-0 hover:bg-gray-50 cursor-pointer"
-                           >
-                              +
-                           </div>
-                        </div>
-                     </li>
-                  </ul>
-                  <div class="mt-8 flex justify-between items-center">
-                     <span class="text-2xl">$15.99</span>
-                     <button class="text-white bg-black py-4 px-8">Add to Cart</button>
-                  </div>
-                  <ul class="mt-8 space-y-4">
-                     <li class="bg-slate-50">
-                        <div class="flex justify-between items-center">
-                           <span>Style:</span>
-                           <span class="text-lg text-gray-500">Casual</span>
-                        </div>
-                        <p class="mt-2 text-sm">
-                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-                           consequuntur ad, animi temporibus neque assumenda.
-                        </p>
-                     </li>
-                     <li class="bg-pink-50">
-                        <div class="flex justify-between items-center">
-                           <span>Sizes:</span>
-                           <span class="text-lg text-gray-500">S, M, L, XL, XXL, XXXL</span>
-                        </div>
-                        <p class="mt-2 text-sm">
-                           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa!
-                        </p>
-                        <p class="mt-2 text-sm">
-                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
-                           doloribus fugiat officia consequatur recusandae!
-                        </p>
-                     </li>
-                  </ul>
-               </div>
+               <img
+                  class="w-full h-[724px] object-cover"
+                  src="./assets/product-preview.jpeg"
+               />
             </div>
          </div>
-      </main>
-   </body>
-</html>
+         <div class="flex-1">
+            <!-- Details -->
+            <div>
+               <h1 class="text-3xl font-medium mt-6">Basic white t-shirt</h1>
+               <p class="mt-8">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum
+                  repellendus dicta quidem, magni in fugit?
+               </p>
+               <ul class="mt-8 space-y-6">
+                  <li class="flex justify-between items-center">
+                     <span class="text-gray-600">Brand:</span>
+                     <span class="font-medium">Zara</span>
+                  </li>
+                  <li class="flex justify-between items-center">
+                     <span class="text-gray-600">Color:</span>
+                     <div class="flex gap-x-4">
+                        <div
+                           class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
+                        >
+                           <div class="w-2 h-2 border border-black/30 rounded-full"></div>
+                           <span class="text-sm">white</span>
+                        </div>
+                        <div
+                           class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50 ring ring-gray-100"
+                        >
+                           <div class="w-2 h-2 bg-black rounded-full"></div>
+                           <span class="text-sm">black</span>
+                        </div>
+                        <div
+                           class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
+                        >
+                           <div class="w-2 h-2 bg-[navy] rounded-full"></div>
+                           <span class="text-sm">navy</span>
+                        </div>
+                        <div
+                           class="border rounded-md px-2 py-0.5 flex space-x-2 items-center cursor-pointer hover:bg-gray-50"
+                        >
+                           <div class="w-2 h-2 bg-[pink] rounded-full"></div>
+                           <span class="text-sm">pink</span>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="flex justify-between items-center">
+                     <span class="text-gray-600">Material:</span>
+                     <span class="font-medium">Chiffon</span>
+                  </li>
+                  <li class="flex justify-between items-center">
+                     <span class="text-gray-600">Size:</span>
+                     <div class="flex gap-x-4">
+                        <div class="border rounded-md cursor-pointer hover:bg-gray-50">
+                           <span class="text-sm px-2 py-0.5">S</span>
+                        </div>
+                        <div class="border rounded-md cursor-pointer hover:bg-gray-50">
+                           <span class="text-sm px-2 py-0.5">M</span>
+                        </div>
+                        <div class="border rounded-md cursor-pointer hover:bg-gray-50">
+                           <span class="text-sm px-2 py-0.5">L</span>
+                        </div>
+                        <div
+                           class="border rounded-md cursor-pointer hover:bg-gray-50 ring ring-gray-100"
+                        >
+                           <span class="text-sm px-2 py-0.5">XL</span>
+                        </div>
+                        <div class="border rounded-md cursor-pointer hover:bg-gray-50">
+                           <span class="text-sm px-2 py-0.5">XXL</span>
+                        </div>
+                        <div class="border rounded-md cursor-pointer hover:bg-gray-50">
+                           <span class="text-sm px-2 py-0.5">XXXL</span>
+                        </div>
+                     </div>
+                  </li>
+                  <li class="flex justify-between items-center">
+                     <span class="text-lg">Quantity:</span>
+                     <div class="flex">
+                        <div
+                           class="rounded-l leading-8 px-3 border border-r-0 hover:bg-gray-50 cursor-pointer"
+                        >
+                           -
+                        </div>
+                        <input
+                           class="text-center rounedd outline-none border w-12 leading-8 px-2"
+                           value="999"
+                           maxlength="3"
+                           type="text"
+                        />
+                        <div
+                           class="rounded-r leading-8 px-3 border border-l-0 hover:bg-gray-50 cursor-pointer"
+                        >
+                           +
+                        </div>
+                     </div>
+                  </li>
+               </ul>
+               <div class="mt-8 flex justify-between items-center">
+                  <span class="text-2xl">$15.99</span>
+                  <button class="text-white bg-black py-4 px-8">Add to Cart</button>
+               </div>
+               <ul class="mt-8 space-y-4">
+                  <li class="bg-slate-50">
+                     <div class="flex justify-between items-center">
+                        <span>Style:</span>
+                        <span class="text-lg text-gray-500">Casual</span>
+                     </div>
+                     <p class="mt-2 text-sm">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+                        consequuntur ad, animi temporibus neque assumenda.
+                     </p>
+                  </li>
+                  <li class="bg-pink-50">
+                     <div class="flex justify-between items-center">
+                        <span>Sizes:</span>
+                        <span class="text-lg text-gray-500">S, M, L, XL, XXL, XXXL</span>
+                     </div>
+                     <p class="mt-2 text-sm">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa!
+                     </p>
+                     <p class="mt-2 text-sm">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt
+                        doloribus fugiat officia consequatur recusandae!
+                     </p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </block>
+</extends>

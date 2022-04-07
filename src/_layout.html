@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="h-full" lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>{{ title }}</title>
+   <link rel="stylesheet" href="tailwind.css" />
+</head>
+<body class="h-full">
+   <div class="h-full flex flex-col">
+      <!-- Header -->
+      <include src="src/components/header.html"></include>
+      <!-- Main -->
+      <main class="container mx-auto py-8">
+         <block name="content"></block>
+      </main>
+      <!-- Footer -->
+      <footer class="mt-auto"></footer>
+   </div>
+</body>
+</html>
