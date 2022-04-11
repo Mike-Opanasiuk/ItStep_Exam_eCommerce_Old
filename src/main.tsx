@@ -3,6 +3,7 @@ import { StrictMode } from 'react';
 import { App } from './App';
 
 import './styles.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const SELECTOR = 'root';
 
@@ -15,6 +16,8 @@ if (!domRoot) {
 
 createRoot(domRoot).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );
