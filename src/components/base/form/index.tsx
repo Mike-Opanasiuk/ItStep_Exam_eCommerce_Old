@@ -1,28 +1,42 @@
-import { FC, ReactNode } from 'react';
+import { forwardRef, ReactNode } from 'react';
 
 interface Props {
    onFinish: (values: {
-      [key: string]: string;
+      [key: string]: any;
    }) => void;
    children: ReactNode;
 }
 
-export const Form: FC<Props> = ({ onFinish, children }) => {
+export const Form = forwardRef<HTMLFormElement, Props>(({ children, onFinish }, ref) => {
 
    const handleSubmitForm = (event: React.FormEvent<HTMLFormElement>) => {
 
       event.preventDefault();
 
-      const data = new FormData(event.currentTarget);
+      // Declare variable for values to return at the end
+      const values: { [key: string]: any } = {};
 
-      const values: any = {};
+      for (let i = 0; i < event.currentTarget.elements.length; i++) {
+         const element = event.currentTarget.elements[i] as HTMLInputElement;
 
-      data.forEach((value, key) => {
-         values[key] = value;
-      });
+         // input value of attribute 'name'
+         const name = element.name;
+
+         if (!name) {
+            continue;
+         }
+
+         const type = element.type;
+
+         if (type === "checbox") { // type="checkbox"
+            values[name] = element.checked;
+         } else {
+            values[name] = element.value;
+         }
+      }
 
       onFinish(values);
    }
 
-   return <form onSubmit={handleSubmitForm}>{children}</form>;
-};
+   return <form ref={ref} onSubmit={handleSubmitForm}>{children}</form>;
+});

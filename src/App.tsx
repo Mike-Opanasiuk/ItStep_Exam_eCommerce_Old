@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/layout";
+import { GoodsView } from "./components/views/goods";
 import { SignView } from "./components/views/sign";
 
 export const App: FC = () => {
@@ -9,6 +10,7 @@ export const App: FC = () => {
       <Layout.Header />
       <main className="flex-1 container mx-auto">
         <Routes>
+          <Route path="/goods" element={<GoodsView />} />
           <Route path="/sign" element={<SignView />} />
         </Routes>
       </main>
