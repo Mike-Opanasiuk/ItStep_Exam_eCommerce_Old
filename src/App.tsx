@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Layout } from "./components/layout";
+import { SignView } from "./components/views/sign";
 
 export const App: FC = () => {
   return (
@@ -8,6 +9,7 @@ export const App: FC = () => {
       <Layout.Header />
       <main className="flex-1 container mx-auto">
         <Routes>
+          <Route path="/sign" element={<SignView />} />
         </Routes>
       </main>
       <footer className="h-16 container mx-auto">
