@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { FilterGroup } from "./components/filter-group";
 
 export const FilterSection: FC = () => {

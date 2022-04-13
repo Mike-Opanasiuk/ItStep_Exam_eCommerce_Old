@@ -1,21 +1,24 @@
 import { FC } from "react";
+import { Select } from "../../../../base/select";
+
+const sortOptions = [
+   { name: "Популярністю", value: "by_popularity" },
+   { name: "Відгуками", value: "by_reviews" },
+   { name: "Спочатку дорогі", value: "expensive_at_first" },
+   { name: "Спочатку дешеві", value: "cheap_at_first" },
+]
 
 export const SortSection: FC = () => {
 
-   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      
+   const handleSelect = (value: string) => {
+
    }
 
    return (
       <div className="flex items-center">
          <span className="text-sm">сортувати за:</span>
          <div className="border rounded px-1 ml-2">
-            <select onChange={handleSelect} className="outline-none h-8 border-none app bg-transparent">
-               <option>Популярністю</option>
-               <option>Відгуками</option>
-               <option>Спочатку дорогі</option>
-               <option>Спочатку дешеві</option>
-            </select>
+            <Select onSelect={handleSelect} options={sortOptions} />
          </div>
       </div>
    );
