@@ -11,12 +11,14 @@ namespace ItStep_Exam_eCommerce.Core.Entities
 
         // nav props
         public virtual ICollection<ProductEntity> Products { get; set; }
+        public virtual ICollection<CategoryEntity> Children { get; set; }
         public virtual CategoryEntity Parent { get; set; }
 
         // init
         public CategoryEntity()
         {
             Products = new HashSet<ProductEntity>();
+            Children = new HashSet<CategoryEntity>();
         }
     }
 }

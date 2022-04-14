@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItStep_Exam_eCommerce.Core
 {
-    public class AppEnv
+    public sealed class AppEnv
     {
         public class Roles
         {

@@ -11,6 +11,7 @@ namespace ItStep_Exam_eCommerce.Core.Entities
     {
         // props
         public string Message { get; set; }
+        public int Rate { get; set; }
 
         // foreign keys
         public int? ProductId { get; set; }
