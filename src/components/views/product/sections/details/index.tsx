@@ -3,6 +3,7 @@ import { Form, FormResultValues } from "@base/form";
 import { BreadCrumbs } from "@layout/bread-crumbs";
 import { HorizontalSelect } from "./horizontal-select";
 import { Quantity } from "@layout/quantity";
+import { Link } from "react-router-dom";
 
 const bread_data = [
    { name: "Товари", link: "/goods" },
@@ -56,7 +57,7 @@ export const Details: FC = () => {
                   <li key={index} className="flex justify-between items-center">
                      <span className="text-gray-600">{title}:</span>
                      {link && (
-                        <a href={link.href} className="font-medium hover:underline">{link.name}</a>
+                        <Link to={link.href} className="font-medium hover:underline">{link.name}</Link>
                      )}
                      {select && (
                         <HorizontalSelect name={name} options={select} />
