@@ -4,6 +4,7 @@ import { Header } from "@layout/header";
 import { GoodsView } from "./components/views/goods";
 import { ProductView } from "./components/views/product";
 import { SignView } from "./components/views/sign";
+import { CartView } from "./components/views/cart";
 
 export const App: FC = () => {
   return (
@@ -13,6 +14,7 @@ export const App: FC = () => {
         <Routes>
           <Route path="/goods" element={<GoodsView />} />
           <Route path="/product/:id" element={<ProductView />} />
+          <Route path="/cart" element={<CartView />} />
           <Route path="/sign" element={<SignView />} />
         </Routes>
       </main>

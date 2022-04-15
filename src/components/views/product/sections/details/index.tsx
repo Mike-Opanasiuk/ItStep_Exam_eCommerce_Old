@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Form, FormResultValues } from "@base/form";
 import { BreadCrumbs } from "@layout/bread-crumbs";
 import { HorizontalSelect } from "./horizontal-select";
-import { Quantity } from "./quantity";
+import { Quantity } from "@layout/quantity";
 
 const bread_data = [
    { name: "Товари", link: "/goods" },
