@@ -1,9 +1,9 @@
 import { forwardRef, ReactNode } from 'react';
 
+export type FormResultValues = { [key: string]: any };
+
 interface Props {
-   onFinish: (values: {
-      [key: string]: any;
-   }) => void;
+   onFinish: (values: FormResultValues) => void;
    children: ReactNode;
 }
 
@@ -14,7 +14,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(({ children, onFinish }, 
       event.preventDefault();
 
       // Declare variable for values to return at the end
-      const values: { [key: string]: any } = {};
+      const values: FormResultValues = {};
 
       for (let i = 0; i < event.currentTarget.elements.length; i++) {
          const element = event.currentTarget.elements[i] as HTMLInputElement;
@@ -28,7 +28,7 @@ export const Form = forwardRef<HTMLFormElement, Props>(({ children, onFinish }, 
 
          const type = element.type;
 
-         if (type === "checbox") { // type="checkbox"
+         if (type === "checkbox") { // type="checkbox"
             values[name] = element.checked;
          } else {
             values[name] = element.value;

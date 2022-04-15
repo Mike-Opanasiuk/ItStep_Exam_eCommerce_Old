@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { FilterGroup } from "./components/filter-group";
+import { FilterGroup } from "./filter-group";
 
 export const FilterSection: FC = () => {
 
