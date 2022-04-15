@@ -1,6 +1,6 @@
 import { FC, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { RenderIf } from "../../base/render-if";
+import { RenderIf } from "@base/render-if";
 
 interface Item {
    name: string;

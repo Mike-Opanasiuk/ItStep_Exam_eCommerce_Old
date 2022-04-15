@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Select } from "../../../../base/select";
+import { Select } from "@base/select";
 
 const sortOptions = [
    { name: "Популярністю", value: "by_popularity" },

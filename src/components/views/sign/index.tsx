@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Form } from "../../base/form";
-import { RenderIf } from "../../base/render-if";
+import { Form } from "@base/form";
+import { RenderIf } from "@base/render-if";
 import { IconEdit } from "../../icons/edit";
 import { useSignLogic } from "./logic";
 

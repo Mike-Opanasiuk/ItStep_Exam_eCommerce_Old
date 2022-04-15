@@ -1,5 +1,5 @@
 import { FC, useRef } from "react";
-import { Form } from "../../../../../base/form";
+import { Form } from "@base/form";
 
 interface Props {
    label: string;

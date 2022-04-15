@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router-dom";
-import { Layout } from "./components/layout";
+import { Header } from "@layout/header";
 import { GoodsView } from "./components/views/goods";
 import { ProductView } from "./components/views/product";
 import { SignView } from "./components/views/sign";
@@ -8,7 +8,7 @@ import { SignView } from "./components/views/sign";
 export const App: FC = () => {
   return (
     <div className="h-full flex flex-col">
-      <Layout.Header />
+      <Header />
       <main className="container-by-default flex-1">
         <Routes>
           <Route path="/goods" element={<GoodsView />} />

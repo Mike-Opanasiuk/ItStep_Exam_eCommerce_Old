@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Form, FormResultValues } from "../../../../base/form";
-import { BreadCrumbs } from "../../../../layout/bread-crumbs";
+import { Form, FormResultValues } from "@base/form";
+import { BreadCrumbs } from "@layout/bread-crumbs";
 import { HorizontalSelect } from "./horizontal-select";
 import { Quantity } from "./quantity";
 

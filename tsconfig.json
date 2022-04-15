@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@base/*": [
+        "./src/components/base/*"
+      ],
+      "@layout/*": [
+        "./src/components/layout/*"
+      ]
+    },
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": [

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { IconArrow } from "../../icons/arrow";
-import { BreadCrumbs } from "../../layout/bread-crumbs";
+import { BreadCrumbs } from "@layout/bread-crumbs";
 import { CardsSection } from "./sections/cards";
 import { FilterSection } from "./sections/filter";
 import { SortSection } from "./sections/sort";
