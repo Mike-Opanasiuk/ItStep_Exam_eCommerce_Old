@@ -14,7 +14,7 @@ namespace ItStep_Exam_eCommerce.Core.Entities
         public int Rate { get; set; }
 
         // foreign keys
-        public int? ProductId { get; set; }
+        public Guid? ProductId { get; set; }
 
         // nav props
         public virtual AppUser Owner { get; set; }

@@ -20,4 +20,5 @@ namespace ItStep_Exam_eCommerce.Core
             public static TimeSpan LONG_EXPIRATION_TIME = TimeSpan.FromDays(7);
         }
     }
+   
 }

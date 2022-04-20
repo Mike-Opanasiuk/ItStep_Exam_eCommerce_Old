@@ -7,7 +7,7 @@ namespace ItStep_Exam_eCommerce.Core.Entities
         // props
         public string Title { get; set; }
         public string Image { get; set; }
-        public int? ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         // nav props
         public virtual ICollection<ProductEntity> Products { get; set; }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace ItStep_Exam_eCommerce.Core.Entities
 {
+    [NotMapped]
     public sealed class OrderStatuses : SmartEnum<OrderStatuses>
     {
         public readonly static OrderStatuses PENDING = new OrderStatuses("PENDING", 0);
