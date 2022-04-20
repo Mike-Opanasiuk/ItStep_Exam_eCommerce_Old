@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItStep_Exam_eCommerce.Web", "ItStep_Exam_eCommerce.Web\ItStep_Exam_eCommerce.Web.csproj", "{35298AA2-1AD8-462D-A70E-2BE9C91A590A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItStep_Exam_eCommerce.Web", "ItStep_Exam_eCommerce.Web\ItStep_Exam_eCommerce.Web.csproj", "{35298AA2-1AD8-462D-A70E-2BE9C91A590A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItStep_Exam_eCommerce.Infrastructure", "ItStep_Exam_eCommerce.Infrastructure\ItStep_Exam_eCommerce.Infrastructure.csproj", "{EC54AB0E-1B7C-4562-85F0-27272F889A82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItStep_Exam_eCommerce.Infrastructure", "ItStep_Exam_eCommerce.Infrastructure\ItStep_Exam_eCommerce.Infrastructure.csproj", "{EC54AB0E-1B7C-4562-85F0-27272F889A82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItStep_Exam_eCommerce.Core", "ItStep_Exam_eCommerce.Core\ItStep_Exam_eCommerce.Core.csproj", "{ECA38368-5B0C-4D5C-9E8E-3CB41EE3B0B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItStep_Exam_eCommerce.Core", "ItStep_Exam_eCommerce.Core\ItStep_Exam_eCommerce.Core.csproj", "{ECA38368-5B0C-4D5C-9E8E-3CB41EE3B0B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CD6B7CF0-C1F7-4C38-A9E5-9C5F48862D4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{35298AA2-1AD8-462D-A70E-2BE9C91A590A} = {CD6B7CF0-C1F7-4C38-A9E5-9C5F48862D4D}
+		{EC54AB0E-1B7C-4562-85F0-27272F889A82} = {CD6B7CF0-C1F7-4C38-A9E5-9C5F48862D4D}
+		{ECA38368-5B0C-4D5C-9E8E-3CB41EE3B0B4} = {CD6B7CF0-C1F7-4C38-A9E5-9C5F48862D4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC9DD15A-9738-4BA0-998F-20CF0DEB268C}
