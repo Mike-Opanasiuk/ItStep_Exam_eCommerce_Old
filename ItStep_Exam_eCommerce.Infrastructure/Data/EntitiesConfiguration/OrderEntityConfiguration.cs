@@ -1,13 +1,8 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities;
-using ItStep_Exam_eCommerce.Core.EntitiesConfiguration.Abstract;
+using ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration.Abstract;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ItStep_Exam_eCommerce.Core.EntitiesConfiguration
+namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration
 {
     internal class OrderEntityConfiguration : BaseEntityConfiguration<OrderEntity>
     {

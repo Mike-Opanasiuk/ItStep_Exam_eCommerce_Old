@@ -1,13 +1,8 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities.Abstract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ItStep_Exam_eCommerce.Core.EntitiesConfiguration.Abstract
+namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration.Abstract
 {
     internal abstract class BaseEntityConfiguration<TEntity>
         : IEntityTypeConfiguration<TEntity> where TEntity

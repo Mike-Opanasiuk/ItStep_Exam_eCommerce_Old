@@ -1,13 +1,8 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ItStep_Exam_eCommerce.Core.EntitiesConfiguration
+namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration
 {
     internal class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
     {

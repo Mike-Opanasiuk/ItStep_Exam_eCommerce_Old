@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ItStep_Exam_eCommerce.Core.Migrations
+namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
 {
     public partial class Init : Migration
     {

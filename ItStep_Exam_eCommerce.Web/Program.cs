@@ -1,4 +1,4 @@
-using ItStep_Exam_eCommerce.Core.EF;
+using ItStep_Exam_eCommerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

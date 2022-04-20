@@ -1,15 +1,10 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities;
-using ItStep_Exam_eCommerce.Core.EntitiesConfiguration;
+using ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ItStep_Exam_eCommerce.Core.EF
+namespace ItStep_Exam_eCommerce.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<AppUser, IdentityRole<Guid>, Guid>
     {

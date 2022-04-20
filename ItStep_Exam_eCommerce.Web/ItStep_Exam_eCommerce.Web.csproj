@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ItStep_Exam_eCommerce.Core\ItStep_Exam_eCommerce.Core.csproj" />
+    <ProjectReference Include="..\ItStep_Exam_eCommerce.Infrastructure\ItStep_Exam_eCommerce.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
