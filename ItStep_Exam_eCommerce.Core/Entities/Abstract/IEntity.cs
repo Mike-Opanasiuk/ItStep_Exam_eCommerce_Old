@@ -1,6 +1,6 @@
 ﻿namespace ItStep_Exam_eCommerce.Core.Entities.Abstract
 {
-    public class BaseEntity : IEntity
+    public interface IEntity
     {
         public Guid Id { get; set; }
         public DateTime CreatedAt { get; set; }

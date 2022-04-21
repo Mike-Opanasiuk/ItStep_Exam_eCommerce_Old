@@ -15,7 +15,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration
             builder.Property(u => u.Name).HasMaxLength(64);
             builder.Property(u => u.Surname).HasMaxLength(64);
 
-            builder.Property(u => u.RegisteredAt).HasDefaultValue(DateTime.UtcNow).ValueGeneratedOnAdd();
+            builder.Property(u => u.CreatedAt).HasDefaultValue(DateTime.UtcNow).ValueGeneratedOnAdd();
             builder.Property(u => u.UpdatedAt).HasDefaultValue(DateTime.UtcNow).ValueGeneratedOnAddOrUpdate();
 
             builder.HasMany(f => f.Feedbacks).WithOne(u => u.Owner).IsRequired();
