@@ -3,10 +3,12 @@ using System;
 using ItStep_Exam_eCommerce.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
+namespace ItStep_Exam_eCommerce.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -33,8 +35,12 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("getutcdate()");
+
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(64)
                         .HasColumnType("nvarchar(64)");
 
@@ -71,11 +77,6 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("RegisteredAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 420, DateTimeKind.Utc).AddTicks(3616));
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
@@ -89,7 +90,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 420, DateTimeKind.Utc).AddTicks(3790));
+                        .HasDefaultValueSql("getutcdate()");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -124,12 +125,12 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(2331));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(5213));
 
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(2557));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(5491));
 
                     b.HasKey("Id");
 
@@ -153,7 +154,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(6820));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(9438));
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
@@ -161,7 +162,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(7051));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(9718));
 
                     b.HasKey("Id");
 
@@ -181,7 +182,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(8345));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(1196));
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -196,7 +197,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(8566));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(1473));
 
                     b.HasKey("Id");
 
@@ -214,7 +215,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(2193));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(5560));
 
                     b.Property<string>("Message")
                         .HasMaxLength(512)
@@ -232,7 +233,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(2422));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(5843));
 
                     b.HasKey("Id");
 
@@ -261,7 +262,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(4108));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(7507));
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -278,7 +279,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(4461));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(7795));
 
                     b.HasKey("Id");
 
@@ -299,7 +300,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(7886));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(1451));
 
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
@@ -313,7 +314,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(8098));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(1705));
 
                     b.HasKey("Id");
 
@@ -336,7 +337,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(9304));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(3061));
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -353,7 +354,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(9520));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(3359));
 
                     b.HasKey("Id");
 
@@ -371,7 +372,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 423, DateTimeKind.Utc).AddTicks(7437));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 66, DateTimeKind.Utc).AddTicks(2060));
 
                     b.Property<Guid>("ProductId")
                         .HasColumnType("uniqueidentifier");
@@ -382,7 +383,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 4, 20, 14, 20, 44, 423, DateTimeKind.Utc).AddTicks(7667));
+                        .HasDefaultValue(new DateTime(2022, 4, 25, 4, 48, 54, 66, DateTimeKind.Utc).AddTicks(2330));
 
                     b.HasKey("Id");
 
