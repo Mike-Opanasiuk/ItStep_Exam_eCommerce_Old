@@ -9,13 +9,13 @@ namespace UnitTesting.Repository.UserRepository
         [SetUp]
         public async Task Setup()
         {
-            await UnitOfWork.UserRepository.InsertAsync(new() { PhoneNumber = "123 000 001" });
-            await UnitOfWork.UserRepository.InsertAsync(new() { PhoneNumber = "123 000 002" });
-            await UnitOfWork.UserRepository.InsertAsync(new() { PhoneNumber = "123 000 003" });
-            await UnitOfWork.UserRepository.InsertAsync(new() { PhoneNumber = "123 000 004" });
-            await UnitOfWork.UserRepository.InsertAsync(new() { PhoneNumber = "123 000 005" });
+            await Context.Users.AddAsync(new() { PhoneNumber = "123 000 001" });
+            await Context.Users.AddAsync(new() { PhoneNumber = "123 000 002" });
+            await Context.Users.AddAsync(new() { PhoneNumber = "123 000 003" });
+            await Context.Users.AddAsync(new() { PhoneNumber = "123 000 004" });
+            await Context.Users.AddAsync(new() { PhoneNumber = "123 000 005" });
 
-            await UnitOfWork.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         [Test]

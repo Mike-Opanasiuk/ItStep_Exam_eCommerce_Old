@@ -1,9 +1,10 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities.Abstract;
 using ItStep_Exam_eCommerce.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItStep_Exam_eCommerce.Infrastructure.UnitOfWork.Repositories.Base
 {
-    public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : IEntity
+    public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey> where TEntity : class, IEntity
     {
         protected ApplicationDbContext Context { get; }
 
@@ -12,29 +13,31 @@ namespace ItStep_Exam_eCommerce.Infrastructure.UnitOfWork.Repositories.Base
             Context = context;
         }
 
-        public virtual Task<TEntity> FindAsync(TKey id)
+        public virtual async Task<TEntity> FindAsync(TKey id)
         {
-            throw new NotImplementedException();
+            return await Context.FindAsync<TEntity>(id);
         }
 
-        public virtual Task<TEntity> InsertAsync(TEntity entity)
+        public virtual async Task<TEntity> InsertAsync(TEntity entity)
         {
-            throw new NotImplementedException();
+            var inserted = await Context.Set<TEntity>().AddAsync(entity);
+            return inserted.Entity;
         }
 
         public virtual TEntity Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            Context.Entry(entity).State = EntityState.Modified;
+            return entity;
         }
 
-        public virtual Task DeleteAsync(TKey id)
+        public virtual async Task DeleteAsync(TKey id)
         {
-            throw new NotImplementedException();
+            Context.Remove(await FindAsync(id));
         }
 
         public IQueryable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return Context.Set<TEntity>();
         }
     }
 }

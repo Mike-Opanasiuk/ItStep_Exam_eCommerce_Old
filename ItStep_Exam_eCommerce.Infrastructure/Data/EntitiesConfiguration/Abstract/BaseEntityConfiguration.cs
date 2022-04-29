@@ -11,8 +11,9 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration.Abstra
         public virtual void Configure(EntityTypeBuilder<TEntity> builder)
         {
             builder.HasKey(k => k.Id);
-            builder.Property(p => p.CreatedAt).HasDefaultValue(DateTime.UtcNow).ValueGeneratedOnAdd();
-            builder.Property(p => p.UpdatedAt).HasDefaultValue(DateTime.UtcNow).ValueGeneratedOnAddOrUpdate();
+
+            builder.Property(u => u.CreatedAt).HasDefaultValueSql("getutcdate()").ValueGeneratedOnAdd();
+            builder.Property(u => u.UpdatedAt).HasDefaultValueSql("getutcdate()").ValueGeneratedOnAddOrUpdate();
         }
     }
 }

@@ -7,12 +7,13 @@ namespace UnitTesting.Repository
     public class RepositoryTestsSetup
     {
         protected IUnitOfWork UnitOfWork { get; }
+        protected ApplicationDbContext Context { get; }
 
         public RepositoryTestsSetup()
         {
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("InMemory");
-            var context = new ApplicationDbContext(builder.Options);
-            UnitOfWork = new UnitOfWork(context);
+            Context = new ApplicationDbContext(builder.Options);
+            UnitOfWork = new UnitOfWork(Context);
         }
     }
 }

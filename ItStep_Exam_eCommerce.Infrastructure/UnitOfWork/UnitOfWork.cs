@@ -16,9 +16,9 @@ namespace ItStep_Exam_eCommerce.Infrastructure.UnitOfWork
             this.context = context;
         }
 
-        public Task<int> SaveChangesAsync()
+        public async Task<int> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return await context.SaveChangesAsync();
         }
 
         public void Dispose()

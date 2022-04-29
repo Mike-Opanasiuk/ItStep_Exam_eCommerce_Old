@@ -12,12 +12,9 @@ namespace UnitTesting.Repository.UserRepository
         [SetUp]
         public async Task Setup()
         {
-            await UnitOfWork.UserRepository.InsertAsync(new AppUser
-            {
-                PhoneNumber = "093 456 678"
-            });
+            await Context.Users.AddAsync(new() { PhoneNumber = "093 456 678" });
 
-            await UnitOfWork.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         [Test]
@@ -28,8 +25,8 @@ namespace UnitTesting.Repository.UserRepository
             var user = new AppUser { PhoneNumber = "093 456 789" };
 
             // Acting
-            await UnitOfWork.UserRepository.InsertAsync(user);
-            await UnitOfWork.SaveChangesAsync();
+            await Context.Users.AddAsync(user);
+            await Context.SaveChangesAsync();
             var realCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
 
             // Testing

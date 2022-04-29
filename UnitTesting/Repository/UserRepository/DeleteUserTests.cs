@@ -14,13 +14,13 @@ namespace UnitTesting.Repository.UserRepository
         [SetUp]
         public async Task Setup()
         {
-            await UnitOfWork.UserRepository.InsertAsync(new AppUser
+            await Context.Users.AddAsync(new () 
             {
                 Id = UserId,
                 PhoneNumber = "093 456 789"
             });
 
-            await UnitOfWork.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         [Test]
