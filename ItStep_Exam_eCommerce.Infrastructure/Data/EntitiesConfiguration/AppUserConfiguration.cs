@@ -11,6 +11,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration
             builder.HasKey(x => x.Id);
 
             builder.HasIndex(u => u.PhoneNumber).IsUnique();
+            builder.Property(u => u.PhoneNumber).IsRequired().HasMaxLength(32);
+
             builder.Property(u => u.Email).HasMaxLength(64);
             builder.Property(u => u.Name).HasMaxLength(64);
             builder.Property(u => u.Surname).HasMaxLength(64);
