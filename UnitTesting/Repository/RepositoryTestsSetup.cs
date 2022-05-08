@@ -2,6 +2,7 @@
 using ItStep_Exam_eCommerce.Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace UnitTesting.Repository
 {
     public class RepositoryTestsSetup
@@ -11,7 +12,7 @@ namespace UnitTesting.Repository
 
         public RepositoryTestsSetup()
         {
-            var builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseInMemoryDatabase("InMemory");
+            var builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseSqlServer(AppEnv.ConnectionStrings.CONNECTION_STRING);
             Context = new ApplicationDbContext(builder.Options);
             UnitOfWork = new UnitOfWork(Context);
         }

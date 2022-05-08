@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace UnitTesting.Repository.UserRepository
@@ -9,10 +10,11 @@ namespace UnitTesting.Repository.UserRepository
     [TestFixture]
     internal class InsertUserTests : RepositoryTestsSetup
     {
+        private const string userPhoneNumber = "093 456 678";
         [SetUp]
         public async Task Setup()
         {
-            await Context.Users.AddAsync(new() { PhoneNumber = "093 456 678" });
+            await Context.Users.AddAsync(new() { PhoneNumber = userPhoneNumber });
 
             await Context.SaveChangesAsync();
         }
@@ -35,12 +37,12 @@ namespace UnitTesting.Repository.UserRepository
                 Assert.Fail("User was not added");
             }
 
-            if (user.CreatedAt < DateTime.UtcNow)
+            if (user.CreatedAt > DateTime.UtcNow)
             {
                 Assert.Fail("User.CreatedAt set incorectly");
             }
 
-            if (user.UpdatedAt < DateTime.UtcNow)
+            if (user.UpdatedAt > DateTime.UtcNow)
             {
                 Assert.Fail("User.UpdatedAt set incorectly");
             }
@@ -53,8 +55,8 @@ namespace UnitTesting.Repository.UserRepository
         {
             // Prepare data
             int initialCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
-            var user = new AppUser { PhoneNumber = "093 456 678" };
-
+            var user = new AppUser { PhoneNumber = userPhoneNumber };
+            var users = UnitOfWork.UserRepository.GetAll().ToList();
             // Acting
             try
             {
@@ -71,8 +73,13 @@ namespace UnitTesting.Repository.UserRepository
 
             if (initialCount < realCount)
             {
-                Assert.Fail("User.Phone mus be unique");
+                Assert.Fail("User.Phone must be unique");
             }
+
+            //var usersWithTheSamePhone = UnitOfWork.UserRepository.GetAll().Where(u => u.PhoneNumber == userPhoneNumber);
+
+            //if(usersWithTheSamePhone.Count() == 2)
+            //        Assert.Fail("User.Phone must be unique");
 
             Assert.Pass();
         }

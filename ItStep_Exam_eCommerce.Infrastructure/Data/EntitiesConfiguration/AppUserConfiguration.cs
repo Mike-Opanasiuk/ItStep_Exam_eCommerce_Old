@@ -1,6 +1,7 @@
 ﻿using ItStep_Exam_eCommerce.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics;
 
 namespace ItStep_Exam_eCommerce.Infrastructure.Data.EntitiesConfiguration
 {
