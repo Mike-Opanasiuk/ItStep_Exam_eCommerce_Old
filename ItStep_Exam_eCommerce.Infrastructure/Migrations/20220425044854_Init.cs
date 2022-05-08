@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
+namespace ItStep_Exam_eCommerce.Infrastructure.Migrations
 {
     public partial class Init : Migration
     {
@@ -30,11 +31,11 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     Surname = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     Photo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RegisteredAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 420, DateTimeKind.Utc).AddTicks(3616)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 420, DateTimeKind.Utc).AddTicks(3790)),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getutcdate()"),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "getutcdate()"),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -60,8 +61,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Title = table.Column<string>(type: "nvarchar(128)", maxLength: 128, nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(8345)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(8566))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(1196)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(1473))
                 },
                 constraints: table =>
                 {
@@ -185,8 +186,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     BuyerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(2331)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(2557))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(5213)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(5491))
                 },
                 constraints: table =>
                 {
@@ -211,8 +212,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BuildingNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BuyerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(4108)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(4461))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(7507)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(7795))
                 },
                 constraints: table =>
                 {
@@ -235,8 +236,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(9304)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(9520))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(3061)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(3359))
                 },
                 constraints: table =>
                 {
@@ -257,8 +258,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     CountOfProducts = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CartId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(6820)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 421, DateTimeKind.Utc).AddTicks(7051))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(9438)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 63, DateTimeKind.Utc).AddTicks(9718))
                 },
                 constraints: table =>
                 {
@@ -286,8 +287,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Rate = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     OwnerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(2193)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(2422))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(5560)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 64, DateTimeKind.Utc).AddTicks(5843))
                 },
                 constraints: table =>
                 {
@@ -314,8 +315,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     PurchasePrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(7886)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 422, DateTimeKind.Utc).AddTicks(8098))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(1451)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 65, DateTimeKind.Utc).AddTicks(1705))
                 },
                 constraints: table =>
                 {
@@ -341,8 +342,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 423, DateTimeKind.Utc).AddTicks(7437)),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 20, 14, 20, 44, 423, DateTimeKind.Utc).AddTicks(7667))
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 66, DateTimeKind.Utc).AddTicks(2060)),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 4, 25, 4, 48, 54, 66, DateTimeKind.Utc).AddTicks(2330))
                 },
                 constraints: table =>
                 {

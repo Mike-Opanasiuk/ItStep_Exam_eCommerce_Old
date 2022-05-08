@@ -1,19 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ItStep_Exam_eCommerce.Core.Entities.Abstract;
+using Microsoft.AspNetCore.Identity;
 
 namespace ItStep_Exam_eCommerce.Core.Entities
 {
-    public class AppUser : IdentityUser<Guid>
+    public class AppUser : IdentityUser<Guid>, IEntity
     {
         // props
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Photo { get; set; }
-        public DateTime RegisteredAt { get; set; }
+
+        public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
         // nav props
