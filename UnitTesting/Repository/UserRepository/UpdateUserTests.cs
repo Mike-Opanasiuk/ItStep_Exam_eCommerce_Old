@@ -40,7 +40,7 @@ namespace UnitTesting.Repository.UserRepository
             // Testing
             int realCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
 
-            if (initialCount == realCount)
+            if (initialCount != realCount)
             {
                 Assert.Fail("Something went wrong. User was insert on update");
             }
