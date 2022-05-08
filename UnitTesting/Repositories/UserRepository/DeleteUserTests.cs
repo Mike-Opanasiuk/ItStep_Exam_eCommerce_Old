@@ -4,10 +4,10 @@ using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
 
-namespace UnitTesting.Repository.UserRepository
+namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
-    internal class UpdateUserTests : RepositoryTestsSetup
+    internal class DeleteUserTests : RepositoryTestsSetup
     {
         private readonly Guid UserId = Guid.NewGuid();
 
@@ -16,40 +16,32 @@ namespace UnitTesting.Repository.UserRepository
         {
             await base.Setup();
 
-            await UnitOfWork.UserRepository.InsertAsync(new AppUser
+            await Context.Users.AddAsync(new () 
             {
                 Id = UserId,
                 PhoneNumber = "093 456 789"
             });
 
-            await UnitOfWork.SaveChangesAsync();
+            await Context.SaveChangesAsync();
         }
 
         [Test]
-        public async Task UpdateUserTest()
+        public async Task DeleteUserTest()
         {
             // Prepare data
             int initialCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
-            var phone = "123 456 789";
             var user = await UnitOfWork.UserRepository.FindAsync(UserId);
 
-            user.PhoneNumber = phone;
-
             // Acting
-            var result = UnitOfWork.UserRepository.Update(user);
+            await UnitOfWork.UserRepository.DeleteAsync(user.Id);
             await UnitOfWork.SaveChangesAsync();
 
             // Testing
             int realCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
 
-            if (initialCount != realCount)
+            if (initialCount == realCount)
             {
-                Assert.Fail("Something went wrong. User was insert on update");
-            }
-
-            if (result.PhoneNumber != phone)
-            {
-                Assert.Fail("Phone number was not updated");
+                Assert.Fail("User was not deleted");
             }
 
             Assert.Pass();

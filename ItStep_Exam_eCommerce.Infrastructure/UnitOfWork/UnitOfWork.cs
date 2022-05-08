@@ -9,6 +9,7 @@ namespace ItStep_Exam_eCommerce.Infrastructure.UnitOfWork
         private readonly ApplicationDbContext context;
 
         public IUserRepository UserRepository { get; }
+        public IProductRepository ProductRepository { get; }
 
         public UnitOfWork(ApplicationDbContext context)
         {

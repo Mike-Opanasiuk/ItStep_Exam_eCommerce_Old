@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTesting.Repository.UserRepository
+namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
     internal class FindUserTests : RepositoryTestsSetup
