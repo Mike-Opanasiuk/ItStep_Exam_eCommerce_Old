@@ -4,11 +4,14 @@ using System.Threading.Tasks;
 
 namespace UnitTesting.Repository.UserRepository
 {
+    [TestFixture]
     internal class GetUsersTests : RepositoryTestsSetup
     {
-        [SetUp]
-        public async Task Setup()
+        [OneTimeSetUp]
+        public override async Task Setup()
         {
+            await base.Setup();
+
             await Context.Users.AddAsync(new() { PhoneNumber = "123 000 001" });
             await Context.Users.AddAsync(new() { PhoneNumber = "123 000 002" });
             await Context.Users.AddAsync(new() { PhoneNumber = "123 000 003" });

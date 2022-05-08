@@ -15,9 +15,11 @@ namespace UnitTesting.Repository.UserRepository
         private readonly Guid UserId = Guid.NewGuid();
         private readonly string Phone = "093 456 321";
 
-        [SetUp]
-        public async Task Setup()
+        [OneTimeSetUp]
+        public override async Task Setup()
         {
+            await base.Setup();
+
             await Context.Users.AddAsync(new () { PhoneNumber = "000 000 001" });
             await Context.Users.AddAsync(new () { PhoneNumber = "000 000 002" });
             await Context.Users.AddAsync(new () { Id = UserId, PhoneNumber = Phone });

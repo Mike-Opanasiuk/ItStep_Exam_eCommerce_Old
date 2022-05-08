@@ -11,9 +11,11 @@ namespace UnitTesting.Repository.UserRepository
     {
         private readonly Guid UserId = Guid.NewGuid();
 
-        [SetUp]
-        public async Task Setup()
+        [OneTimeSetUp]
+        public override async Task Setup()
         {
+            await base.Setup();
+
             await Context.Users.AddAsync(new () 
             {
                 Id = UserId,

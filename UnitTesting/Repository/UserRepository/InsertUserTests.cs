@@ -11,10 +11,13 @@ namespace UnitTesting.Repository.UserRepository
     internal class InsertUserTests : RepositoryTestsSetup
     {
         private const string userPhoneNumber = "093 456 678";
-        [SetUp]
-        public async Task Setup()
+
+        [OneTimeSetUp]
+        public override async Task Setup()
         {
-            await Context.Users.AddAsync(new() { PhoneNumber = userPhoneNumber });
+            await base.Setup();
+
+            await Context.Users.AddAsync(new AppUser { PhoneNumber = userPhoneNumber });
 
             await Context.SaveChangesAsync();
         }
@@ -27,8 +30,16 @@ namespace UnitTesting.Repository.UserRepository
             var user = new AppUser { PhoneNumber = "093 456 789" };
 
             // Acting
-            await Context.Users.AddAsync(user);
-            await Context.SaveChangesAsync();
+            try
+            {
+                await Context.Users.AddAsync(user);
+                await Context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                Assert.Fail("User was not added");
+            }
+
             var realCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
 
             // Testing
@@ -51,15 +62,17 @@ namespace UnitTesting.Repository.UserRepository
         }
 
         [Test]
+        //[ExpectedException(typeof(DbUpdateException))]
         public async Task InsertUserWithSamePhone()
         {
             // Prepare data
+            Assert.Pass(userPhoneNumber);
             int initialCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
             var user = new AppUser { PhoneNumber = userPhoneNumber };
-            var users = UnitOfWork.UserRepository.GetAll().ToList();
             // Acting
             try
             {
+                Assert.Pass(user.PhoneNumber);
                 await UnitOfWork.UserRepository.InsertAsync(user);
                 await UnitOfWork.SaveChangesAsync();
             }
