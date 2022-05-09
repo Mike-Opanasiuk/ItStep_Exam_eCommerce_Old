@@ -5,7 +5,7 @@ using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
 
-namespace UnitTesting.Repository
+namespace UnitTesting.Repositories
 {
     public class RepositoryTestsSetup
     {
