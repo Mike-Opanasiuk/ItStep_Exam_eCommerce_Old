@@ -5,14 +5,14 @@ using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
 
-namespace UnitTesting.Repositories
+namespace UnitTesting.Repositories.Base
 {
-    public class RepositoryTestsSetup
+    public class BaseRepositoryTestsSetup
     {
         protected IUnitOfWork UnitOfWork { get; }
         protected ApplicationDbContext Context { get; }
 
-        public RepositoryTestsSetup()
+        public BaseRepositoryTestsSetup()
         {
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>().UseSqlServer(AppEnv.ConnectionStrings.CONNECTION_STRING);
             Context = new ApplicationDbContext(builder.Options);

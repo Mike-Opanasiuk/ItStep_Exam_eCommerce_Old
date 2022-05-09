@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.ProductRepository
 {
     [TestFixture]
-    internal class InsertProductTests : RepositoryTestsSetup
+    internal class InsertProductTests : ProductRepositoryTestsSetup
     {
         // overriding to set [OneTimeSetUp]
         [OneTimeSetUp]
@@ -24,7 +25,8 @@ namespace UnitTesting.Repositories.ProductRepository
         {
             // arrange
             int initialCount = await UnitOfWork.ProductRepository.GetAll().CountAsync();
-            var product = new ProductEntity { Name = "Laptop" };
+
+            var product = new ProductEntity { Name = "Laptop", Category = category };
 
             // act
             try
@@ -43,10 +45,35 @@ namespace UnitTesting.Repositories.ProductRepository
         }
 
         [Test]
-        public async Task InsertProductAsync_InsertsProductWithCorrectData()
+        public async Task InsertProductWithoutCategoryAsync_DoesntInsertProduct()
         {
             // arrange
+            int initialCount = await UnitOfWork.ProductRepository.GetAll().CountAsync();
+
             var product = new ProductEntity { Name = "Laptop" };
+
+            // act
+            try
+            {
+                await UnitOfWork.ProductRepository.InsertAsync(product);
+                await UnitOfWork.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                Assert.Pass();
+            }
+            var actualCount = await UnitOfWork.ProductRepository.GetAll().CountAsync();
+
+            // assert
+            Assert.AreEqual(initialCount, actualCount);
+        }
+
+        [Test]
+        public async Task InsertProductAsync_InsertsProductWithCorrectDate()
+        {
+            // arrange
+
+            var product = new ProductEntity { Name = "Laptop", Category = category };
 
             // act
             await UnitOfWork.ProductRepository.InsertAsync(product);

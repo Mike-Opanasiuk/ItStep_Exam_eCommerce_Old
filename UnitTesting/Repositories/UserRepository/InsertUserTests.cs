@@ -4,11 +4,12 @@ using NUnit.Framework;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
-    internal class InsertUserTests : RepositoryTestsSetup
+    internal class InsertUserTests : BaseRepositoryTestsSetup
     {
         private const string userPhoneNumber = "093 456 678";
 

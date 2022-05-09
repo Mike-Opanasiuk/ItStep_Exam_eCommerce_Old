@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
-    internal class DeleteUserTests : RepositoryTestsSetup
+    internal class DeleteUserTests : BaseRepositoryTestsSetup
     {
         private readonly Guid UserId = Guid.NewGuid();
 

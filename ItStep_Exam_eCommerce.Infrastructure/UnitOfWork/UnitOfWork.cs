@@ -14,6 +14,8 @@ namespace ItStep_Exam_eCommerce.Infrastructure.UnitOfWork
         public UnitOfWork(ApplicationDbContext context)
         {
             UserRepository = new UserRepository(context);
+            ProductRepository = new ProductRepository(context);
+
             this.context = context;
         }
 
