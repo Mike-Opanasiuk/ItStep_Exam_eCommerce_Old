@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.ProductRepository
 {
     [TestFixture]
-    internal class UpdateProductTests : RepositoryTestsSetup
+    internal class UpdateProductTests : ProductRepositoryTestsSetup
     {
         private readonly Guid productId = Guid.NewGuid();
 
@@ -22,7 +23,7 @@ namespace UnitTesting.Repositories.ProductRepository
             await UnitOfWork.ProductRepository.InsertAsync(new ProductEntity
             {
                 Id = productId,
-                Name = "Banana"
+                Category = category
             });
 
             await UnitOfWork.SaveChangesAsync();
@@ -41,7 +42,8 @@ namespace UnitTesting.Repositories.ProductRepository
             // act
             var result = UnitOfWork.ProductRepository.Update(product);
             await UnitOfWork.SaveChangesAsync();
-            int actualCount = await UnitOfWork.UserRepository.GetAll().CountAsync();
+
+            int actualCount = await UnitOfWork.ProductRepository.GetAll().CountAsync();
 
 
             // assert

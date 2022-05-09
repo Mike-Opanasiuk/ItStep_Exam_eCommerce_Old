@@ -6,11 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
-    internal class FindUserTests : RepositoryTestsSetup
+    internal class FindUserTests : BaseRepositoryTestsSetup
     {
         private readonly Guid UserId = Guid.NewGuid();
         private readonly string Phone = "093 456 321";

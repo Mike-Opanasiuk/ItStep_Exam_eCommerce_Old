@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.ProductRepository
 {
     [TestFixture]
-    internal class FindProductTests : RepositoryTestsSetup
+    internal class FindProductTests : ProductRepositoryTestsSetup
     {
         private readonly Guid productId = Guid.NewGuid();
         private readonly string searchName = "SearchedItem";
@@ -15,11 +16,11 @@ namespace UnitTesting.Repositories.ProductRepository
         {
             await base.Setup();
 
-            await Context.Products.AddAsync(new() { Id = productId, Name = searchName });
+            await Context.Products.AddAsync(new() { Id = productId, Name = searchName, Category = category });
 
             for (int i = 0; i < 4; i++)
             {
-                await Context.Products.AddAsync(new() { Name = searchName + $"_{i}" });
+                await Context.Products.AddAsync(new() { Name = searchName + $"_{i}", Category = category });
             }
 
             await Context.SaveChangesAsync();
@@ -46,7 +47,7 @@ namespace UnitTesting.Repositories.ProductRepository
             var product = await UnitOfWork.ProductRepository.FindAsync(productId);
 
             // assert
-            Assert.AreEqual(product.Name, searchName, "Wrong product was found");
+            Assert.AreEqual(product.Id, productId, "Wrong product was found");
         }
     }
 }

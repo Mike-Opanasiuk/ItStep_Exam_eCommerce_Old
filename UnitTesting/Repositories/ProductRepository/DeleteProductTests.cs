@@ -5,10 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.ProductRepository
 {
-    internal class DeleteProductTests : RepositoryTestsSetup
+    internal class DeleteProductTests : ProductRepositoryTestsSetup
     {
         private readonly Guid productId = Guid.NewGuid();
 
@@ -20,7 +21,8 @@ namespace UnitTesting.Repositories.ProductRepository
             await Context.Products.AddAsync(new()
             {
                 Id = productId,
-                Name = "Banana"
+                Name = "Banana",
+                Category = category
             });
 
             await Context.SaveChangesAsync();
@@ -34,6 +36,8 @@ namespace UnitTesting.Repositories.ProductRepository
 
             // act
             await UnitOfWork.ProductRepository.DeleteAsync(productId);
+            await UnitOfWork.SaveChangesAsync();
+
             var actualCount = await UnitOfWork.ProductRepository.GetAll().CountAsync();
 
             // assert

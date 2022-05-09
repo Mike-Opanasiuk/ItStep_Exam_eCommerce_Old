@@ -1,11 +1,12 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 using System.Threading.Tasks;
+using UnitTesting.Repositories.Base;
 
 namespace UnitTesting.Repositories.UserRepository
 {
     [TestFixture]
-    internal class GetUsersTests : RepositoryTestsSetup
+    internal class GetUsersTests : BaseRepositoryTestsSetup
     {
         [OneTimeSetUp]
         public override async Task Setup()
